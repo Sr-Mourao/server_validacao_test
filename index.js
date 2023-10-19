@@ -11,7 +11,6 @@ app.use(bodyParser.json({ limit: "10mb" }));
 app.use(bodyParser.urlencoded({ extended: false, limit: "10mb" }));
 app.use(cors({ origin: "*" }));
 
-// Middleware para lidar com erros de carga útil muito grande
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
     res.status(400).json({ error: "Payload too large" });
