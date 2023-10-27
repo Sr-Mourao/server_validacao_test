@@ -81,7 +81,6 @@ app.post("/result", (req, res) => {
     if (userSocket) {
       userSocket.emit("resultData", req.body);
       res.status(200).json(req.body);
-      console.log(req.body);
     } else {
       throw new Error(`Cliente com ID externo ${idClient} não encontrado`);
     }
